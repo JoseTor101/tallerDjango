@@ -7,7 +7,41 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Welcome to Home Page :) <span style="color: magenta;">{{name}}</span></h1>
-    <h2>This is the full home page</h2>
+    <!--<h1>Welcome to Home Page :) <span style="color: magenta;">{{name}}</span></h1>
+    <h2>This is the full home page</h2>-->
+    <div class="container">
+        <form action="">
+            <div class="mb-3">
+                <label for="searchMovie" class="form-label">
+                    Search for movie:
+                </label>
+                <input type="text" name="searchMovie" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <p>Searching for {{ searchTerm }}</p>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for movie in movies %}
+
+        <div v-for="movie in movies" class="col">
+            <div class="card">
+                <img src="{{movie.url}}" alt="" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{movie.title}}</h5>
+                    <p class="card-text"> {{ movie.description }}</p>
+                    <img src="{{ movie.image }}" alt="">
+                    {%if movie.url %}
+                    <!--<<img src="{{movie.url}}" alt="" width="250px">
+                        a href="{{movie.url}}">Movie Link</a>-->
+                </div>
+                <h2> {{ movie.title }}</h2>
+            
+            {%endif%}
+        </div>
+        </div>
+        {%endfor%}
+    </div>
+    <br/>
+    </div>
 </body>
 </html>
