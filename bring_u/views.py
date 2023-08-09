@@ -8,10 +8,11 @@ from .models import Restaurants,Menu
 def restaurants(request):
     searchRestaurant= request.GET.get('searchRestaurant')
     if searchRestaurant:
-        movies = Restaurants.objects.filter(title__icontains = searchRestaurant)
+        restaurants = Restaurants.objects.filter(name__icontains = searchRestaurant)
     else:
-        movies =  Restaurants.objects.all()
-    return render(request, 'restaurants.html', {'searchRestaurant': searchRestaurant, 'Restaurants': Restaurants})
+        restaurants=  Restaurants.objects.all()
+    restaurantDict = {'restaurants': restaurants} 
+    return render(request, 'restaurants.html', restaurantDict )
 
 def restaurant_detail(request, restaurant_id):
     restaurant = get_object_or_404(Restaurants, pk=restaurant_id)
