@@ -1,5 +1,6 @@
 from django.shortcuts import render,  get_object_or_404
 from django.http import HttpResponse
+
 from .models import Restaurants,Menu
 # Create your views here.
 
@@ -7,10 +8,10 @@ from .models import Restaurants,Menu
 def restaurants(request):
     searchRestaurant= request.GET.get('searchRestaurant')
     if searchRestaurant:
-        movies = Movie.objects.filter(title__icontains = searchRestaurant)
+        movies = Restaurants.objects.filter(title__icontains = searchRestaurant)
     else:
-        movies = Movie.objects.all()
-    return render(request, 'restaurants.html', {'searchRestaurant': searchRestaurant, 'movies': movies})
+        movies =  Restaurants.objects.all()
+    return render(request, 'restaurants.html', {'searchRestaurant': searchRestaurant, 'Restaurants': Restaurants})
 
 def restaurant_detail(request, restaurant_id):
     restaurant = get_object_or_404(Restaurants, pk=restaurant_id)
