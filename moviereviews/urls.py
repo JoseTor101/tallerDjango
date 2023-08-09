@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from movie import views as movieViews
 
+from bring_u import views as bringuViews 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',movieViews.home),
     path('about',movieViews.about),
-    path('restaurants',movieViews.restaurants),
-     path('restaurant/<int:restaurant_id>/', movieViews.restaurant_detail, name='restaurant_detail'),
+    path('restaurants',bringuViews.restaurants),
+    path('restaurant/<int:restaurant_id>/', bringuViews.restaurant_detail, name='restaurant_detail'),
 ]
