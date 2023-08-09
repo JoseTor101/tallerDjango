@@ -17,3 +17,6 @@ def home(request):
 
 def about(request):
     return render(request, 'about.html', {'name': 'Jose Tordecilla'})
+
+def restaurants(request):
+    return render(request, 'restaurants.html')
