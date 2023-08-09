@@ -23,4 +23,5 @@ urlpatterns = [
     path('',movieViews.home),
     path('about',movieViews.about),
     path('restaurants',movieViews.restaurants),
+     path('restaurant/<int:restaurant_id>/', movieViews.restaurant_detail, name='restaurant_detail'),
 ]
